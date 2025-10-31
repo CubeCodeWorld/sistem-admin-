@@ -1,0 +1,24 @@
+﻿<% layout('layout') -%>
+<h2 style="margin:4px 0 12px">Input Pembelian</h2>
+<form method="post" action="/purchases" class="form">
+  <div>
+    <label>Produk</label>
+    <select name="product_id" required>
+      <% products.forEach(p => { %>
+        <option value="<%= p.id %>" data-price="<%= p.price %>">
+  <%= p.name %> | Rp<%= Intl.NumberFormat('id-ID').format(p.price) %> | Stok <%= p.qty %>
+</option>
+
+      <% }) %>
+    </select>
+  </div>
+  <div class="row">
+    <div>
+      <label>Qty</label>
+      <input type="number" name="qty" min="1" required value="1" />
+    </div>
+  </div>
+  <button type="submit" class="btn primary">Simpan Pembelian</button>
+</form>
+
+

@@ -1,0 +1,28 @@
+<% layout('layout') -%>
+<% if (typeof stats !== 'undefined') { %>
+<section class="cards">
+<div class="card"><div class="k">Produk</div><div class="v"><%= stats.products || 0 %></div></div>
+<div class="card"><div class="k">Total Stok</div><div class="v"><%= stats.total_stock || 0 %></div></div>
+<div class="card"><div class="k">Pembelian</div><div class="v"><%= stats.purchases || 0 %></div></div>
+<div class="card"><div class="k">Revenue</div><div class="v">Rp<%= (stats.revenue||0).toLocaleString('id-ID') %></div></div>
+</section>
+<% } %>
+
+
+<% if (typeof items !== 'undefined') { %>
+<h2 style="margin:4px 0 12px">Daftar Produk</h2>
+<table class="table">
+<thead><tr><th>ID</th><th>SKU</th><th>Nama</th><th>Harga</th><th>Stok</th></tr></thead>
+<tbody>
+<% items.forEach(it => { %>
+<tr>
+<td><%= it.id %></td>
+<td><%= it.sku %></td>
+<td><%= it.name %></td>
+<td>Rp<%= it.price.toLocaleString('id-ID') %></td>
+<td><%= it.qty %></td>
+</tr>
+<% }) %>
+</tbody>
+</table>
+<% } %>

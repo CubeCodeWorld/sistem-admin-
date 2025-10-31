@@ -1,0 +1,79 @@
+:root{
+  --brand:#ee4d2d;      /* oranye Shopee */
+  --brand-2:#f05d40;    /* oranye hover */
+  --bg:#f6f8fb;         /* abu muda background app */
+  --text:#0f172a;
+  --muted:#667085;
+  --white:#fff;
+  --border:#e5e7eb;
+  --shadow:0 10px 30px rgba(16,24,40,.08);
+  --success:#16a34a;
+  --danger:#dc2626;
+}
+
+/* reset singkat */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
+
+/* === HEADER SHOPEE-ISH === */
+.topbar{
+  position:sticky; top:0; z-index:20;
+  display:flex; align-items:center; gap:16px;
+  padding:12px 18px;
+  background:var(--brand);
+  color:#fff;
+  box-shadow:var(--shadow);
+}
+.topbar .brand{
+  font-weight:800; letter-spacing:.2px; display:flex; align-items:center; gap:8px;
+}
+.topbar .nav{ margin-left:auto; display:flex; gap:10px; flex-wrap:wrap }
+.topbar .nav a{
+  color:#fff; text-decoration:none; padding:8px 10px; border-radius:10px;
+}
+.topbar .nav a:hover{ background:rgba(255,255,255,.15) }
+.btn{ border:1px solid rgba(255,255,255,.3); background:transparent; color:#fff;
+      padding:8px 12px; border-radius:10px; text-decoration:none; display:inline-flex; align-items:center; gap:8px }
+.btn.primary{ background:#fff; border-color:#fff; color:var(--brand); }
+.btn.danger{ background:#fff; border-color:#fff; color:var(--danger); }
+
+/* === LAYOUT KONTEN === */
+.shell{ display:flex; justify-content:center; }
+.content{ width:100%; max-width:1100px; padding:18px; }
+.panel{ background:var(--white); border:1px solid var(--border); border-radius:14px; padding:18px; box-shadow:var(--shadow) }
+.footer{ max-width:1100px; margin:16px auto 40px; color:#fff; font-size:12px; padding:0 16px; }
+
+/* === FLASH === */
+.flash-wrap{ display:grid; gap:8px; margin:0 0 14px }
+.flash{ padding:10px 12px; border-radius:12px; border:1px solid var(--border) }
+.flash.success{ background:rgba(22,163,74,.1); color:var(--success) }
+.flash.warning{ background:rgba(234,179,8,.12); color:#b45309 }
+.flash.danger{ background:rgba(220,38,38,.12); color:var(--danger) }
+
+/* === KARTU STATISTIK === */
+.cards{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:12px }
+.card{ background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; box-shadow:var(--shadow) }
+.card .k{ font-size:12px; color:var(--muted) }
+.card .v{ font-size:22px; font-weight:800; margin-top:6px }
+
+/* === TABEL === */
+.table{ width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:12px; border:1px solid var(--border); background:#fff; box-shadow:var(--shadow) }
+.table thead th{ background:#fafafa; font-weight:700; font-size:12px; text-transform:uppercase; color:#475467 }
+.table th,.table td{ padding:12px 14px; border-bottom:1px solid var(--border); text-align:left }
+.table tbody tr:hover{ background:rgba(238,77,45,.08) }
+
+/* === FORM === */
+.form{ display:grid; gap:12px; max-width:560px }
+.form .row{ display:grid; grid-template-columns:1fr 1fr; gap:12px }
+.form label{ font-size:12px; color:var(--muted) }
+.form input,.form select{ padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:#fff; color:var(--text) }
+
+/* === BADGE === */
+.badge{ padding:4px 10px; border-radius:999px; font-size:12px; border:1px solid var(--border) }
+.badge.success{ background:rgba(22,163,74,.1); color:var(--success) }
+.badge.danger{ background:rgba(220,38,38,.1); color:var(--danger) }
+
+/* responsive */
+@media (max-width: 1024px){ .cards{ grid-template-columns:repeat(2,1fr) } }
+@media (max-width: 720px){ .cards{ grid-template-columns:1fr } .for

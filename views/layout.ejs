@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Admin Pembelian</title>
+    <link rel="stylesheet" href="/styles.css"/>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">🛒 Admin Pembelian</div>
+      <nav class="nav">
+        <a href="/">Dashboard</a>
+        <a href="/products">Produk</a>
+        <a href="/purchases">Pembelian</a>
+        <a href="/purchases/new" class="btn primary">+ Input Pembelian</a>
+      </nav>
+    </header>
+
+    <main class="shell">
+      <div class="content">
+        <%- include('partials/flash') %>
+        <section class="panel">
+          <%- body %>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      © <%= new Date().getFullYear() %> • Admin
+    </footer>
+  </body>
+</html>

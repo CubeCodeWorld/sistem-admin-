@@ -1,0 +1,21 @@
+{
+  "name": "admin-pembelian",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ejs-mate": "^4.0.0"
+  }
+
+{
+  "name": "admin-pembelian",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": { "start": "node app.js" },
+  "dependencies": {}
+}
+

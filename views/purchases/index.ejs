@@ -1,0 +1,57 @@
+﻿<% layout('layout') -%>
+<h2 style="margin:4px 0 12px">Daftar Pembelian</h2>
+
+
+<form method="get" class="filters">
+<input type="text" name="q" value="<%= (q||'') %>" placeholder="Cari produk / SKU..." />
+<select name="status">
+<option value="">Semua Status</option>
+<option value="PAID" <%= status==='PAID'?'selected':'' %>>PAID</option>
+<option value="CANCELED" <%= status==='CANCELED'?'selected':'' %>>CANCELED</option>
+</select>
+<div class="spacer"></div>
+<a href="/purchases" class="btn">Reset</a>
+</form>
+
+
+<table class="table">
+<thead>
+<tr>
+<th>ID</th>
+<th>Waktu</th>
+<th>Produk</th>
+<th>Qty</th>
+<th>Harga Satuan</th>
+<th>Total</th>
+<th>Status</th>
+<th>Aksi</th>
+</tr>
+</thead>
+<tbody>
+<% (rows||[]).forEach(r => { %>
+<tr>
+<td>#<%= r.id %></td>
+<td><%= r.created_at %></td>
+<td><%= r.product_name %> (<%= r.sku %>)</td>
+<td><%= r.qty %></td>
+<td>Rp<%= r.price_each.toLocaleString('id-ID') %></td>
+<td>Rp<%= r.total_price.toLocaleString('id-ID') %></td>
+<td>
+<% if (r.status === 'PAID') { %>
+<span class="badge success">PAID</span>
+<% } else { %>
+<span class="badge danger">CANCELED</span>
+<div class="muted">oleh <%= r.canceled_by %> • <%= r.canceled_at %></div>
+<% } %>
+</td>
+<td>
+<% if (r.status === 'PAID') { %>
+<form method="post" action="/purchases/<%= r.id %>/cancel" onsubmit="return confirm('Batalkan transaksi ini?')">
+<button class="btn danger small" type="submit">Cancel</button>
+</form>
+<% } else { %>—<% } %>
+</td>
+</tr>
+<% }) %>
+</tbody>
+</table>
